@@ -37,5 +37,7 @@ L'application comporte une version anglaise, et une version française en cours 
 
 Des messages d'erreur sont paramétrés pour réguler le remplissage des champs du formulaire.
 
-Pour afficher le site : importer le projet dans Eclipse EE.
+Pour afficher le site : 
+Télécharger le projet depuis github, avec l'url https://github.com/PHLegourd/JSFVanPH.git
+Importer le projet dans Eclipse EE.
 Clic droit sur le projet, sélectionner Run on server.

@@ -13,7 +13,7 @@
 	<div align="center">
 		<h:graphicImage value="#{characterBean.flagUri}"></h:graphicImage>
 		<br /> <br />
-		<h:outputText value="#{characterBean.summary}" />
+		value="#{messages['motherland.sum1']} #{characterBean.firstName} #{characterBean.name}#{messages['motherland.sum3']} #{characterBean.age} #{messages['motherland.sum4']}#{characterBean.country}#{messages['motherland.sum5']}" />
 		<br /> <br />
 		<h:form>
 			<h:commandLink value="#{messages['action.return']} #{messages['index.createChar']}"

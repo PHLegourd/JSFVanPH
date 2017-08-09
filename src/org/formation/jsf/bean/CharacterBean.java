@@ -68,18 +68,4 @@ public class CharacterBean implements Serializable {
 	public void setFlagUri(String flagUri) {
 		this.flagUri = "resources/img/" + this.country + ".jpg";
 	}
-
-	public String getSummary() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Hi! My name is ");
-		sb.append(firstName);
-		sb.append(" ");
-		sb.append(name);
-		sb.append(", I am ");
-		sb.append(age);
-		sb.append(" years old and a proud citizen of ");
-		sb.append(country);
-		sb.append("!");
-		return sb.toString();
-	}
 }

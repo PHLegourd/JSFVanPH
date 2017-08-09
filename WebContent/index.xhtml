@@ -2,12 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	style="background-color: #c5def1;">
+	
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>#{characterBean.name}</title>
+
 </h:head>
+
 <h:body>
+<div id="bodyy">
 <f:view locale="#{languageController.locale}"/>
 	<h:form>
 		<h:commandButton value="Français"
@@ -15,10 +20,12 @@
 		<h:commandButton value="English"
 			action="#{languageController.changeLanguage('en')}" />
 	</h:form>
+
 	<div align="center">
 		<h2>#{messages['index.createChar']} </h2>
 		<div>
 			<h:form>
+			<fieldset> <legend> #{messages['index.createChar']}  </legend>
 			    <label> #{messages['index.fn']} *</label>
 				<h:inputText id="fn" label="#{messages['index.fn']}"
 					value="#{characterBean.firstName}" required="true">
@@ -42,6 +49,7 @@
 				<h:message for="a" errorStyle="color:red"></h:message>
 				<br />
 				<br />
+				<fieldset> <legend> #{messages['index.selectCountry']}  </legend>
 				<label>#{messages['index.selectCountry']}</label>
 				<br />
 				<h:selectOneMenu value="#{characterBean.country}">
@@ -54,21 +62,29 @@
 				</h:selectOneMenu>
 				<br />
 				<br />
-				<h:commandButton value="#{messages['action.submit']}" action="index" />
+				<h:commandButton value="#{messages['index.drapeau']}" action ="index" />
+				<br />
+				<br />
+				<h:form>
+			
+				<h:graphicImage value="#{characterBean.flagUri}" width="300"></h:graphicImage>
+			</h:form>
+		
+				</fieldset>
+					
+				<br />
+				<h:commandButton value="#{messages['action.submit']}" action="motherland.xhtml" />
 				<h:commandButton value="#{messages['action.reset']}"
 					action="#{characterBean.reset}" />
+					</fieldset>
 			</h:form>
 		</div>
 		<div>
 			<br /> <br />
-			<h:form>
-				<h:commandLink action="motherland">#{messages['index.summary']}</h:commandLink>
-				<br />
-				<br />
-				<h:graphicImage value="#{characterBean.flagUri}"></h:graphicImage>
-			</h:form>
+			
 
 		</div>
+	</div>
 	</div>
 </h:body>
 </html>

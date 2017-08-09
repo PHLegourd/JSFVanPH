@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>#{characterBean.name}</title>
+</h:head>
+<h:body>
+<f:view locale="#{languageController.locale}"/>
+	<h:form>
+		<h:commandButton value="Français"
+			action="#{languageController.changeLanguage('fr')}" />
+		<h:commandButton value="English"
+			action="#{languageController.changeLanguage('en')}" />
+	</h:form>
+	<div align="center">
+		<h2>#{messages['index.createChar']}</h2>
+		<div>
+			<h:form>
+				<h:inputText id="fn" label="#{messages['index.fn']}"
+					value="#{characterBean.firstName}" required="true">
+				</h:inputText>
+				<h:message for="fn"></h:message>
+				<br />
+				<h:inputText id="sn" label="#{messages['index.surname']}"
+					value="#{characterBean.name}" required="true" />
+				<h:message for="sn"></h:message>
+				<br />
+				<h:inputText id="a" label="#{messages['index.age']}"
+					value="#{characterBean.age}" required="true">
+					<f:validateLongRange minimum="1" maximum="120" />
+				</h:inputText>
+				<h:message for="a"></h:message>
+				<br />
+				<br />
+				<label>#{messages['index.selectCountry']}</label>
+				<br />
+				<h:selectOneMenu value="#{characterBean.country}">
+					<f:selectItem itemValue="Ireland"
+						itemLabel="#{messages['index.ireland']}" />
+					<f:selectItem itemValue="India"
+						itemLabel="#{messages['index.india']}" />
+					<f:selectItem itemValue="Iraq"
+						itemLabel="#{messages['index.iraq']}" />
+				</h:selectOneMenu>
+				<br />
+				<br />
+				<h:commandButton value="#{messages['action.submit']}" action="index" />
+				<h:commandButton value="#{messages['action.reset']}"
+					action="#{characterBean.reset}" />
+			</h:form>
+		</div>
+		<div>
+			<br /> <br />
+			<h:form>
+				<h:commandLink action="motherland">#{messages['index.summary']}</h:commandLink>
+				<br />
+				<br />
+				<h:graphicImage value="#{characterBean.flagUri}"></h:graphicImage>
+			</h:form>
+
+		</div>
+	</div>
+</h:body>
+</html>
